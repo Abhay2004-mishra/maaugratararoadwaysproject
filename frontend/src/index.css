@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue-50: #f0f9ff;
+  --color-brand-blue-100: #e0f2fe;
+  --color-brand-blue-200: #bae6fd;
+  --color-brand-blue-300: #7dd3fc;
+  --color-brand-blue-400: #38bdf8;
+  --color-brand-blue-500: #0a66c2;
+  --color-brand-blue-600: #0d56a6;
+  --color-brand-blue-700: #0f488a;
+  --color-brand-blue-800: #113a6e;
+  --color-brand-blue-900: #0f2c52;
+  --color-brand-blue-950: #0b1b33;
+
+  --color-brand-orange-50: #fff7ed;
+  --color-brand-orange-100: #ffedd5;
+  --color-brand-orange-200: #fed7aa;
+  --color-brand-orange-300: #fdba74;
+  --color-brand-orange-400: #fb923c;
+  --color-brand-orange-500: #f97316;
+  --color-brand-orange-600: #ea580c;
+  --color-brand-orange-700: #c2410c;
+  --color-brand-orange-850: #ab3a12;
+  --color-brand-orange-800: #9a3412;
+  --color-brand-orange-900: #7c2d12;
+  --color-brand-orange-950: #431407;
+
+  --color-brand-slate-50: #f8fafc;
+  --color-brand-slate-100: #f1f5f9;
+  --color-brand-slate-200: #e2e8f0;
+  --color-brand-slate-300: #cbd5e1;
+  --color-brand-slate-400: #94a3b8;
+  --color-brand-slate-500: #64748b;
+  --color-brand-slate-600: #475569;
+  --color-brand-slate-700: #334155;
+  --color-brand-slate-800: #1e293b;
+  --color-brand-slate-900: #0f172a;
+  --color-brand-slate-950: #020617;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-slate-50 text-brand-slate-900 font-sans transition-colors duration-305 antialiased;
+  }
+  
+  body.dark {
+    @apply bg-brand-slate-950 text-brand-slate-100;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-outfit tracking-tight;
+  }
+}
+
+@utility glass-card {
+  @apply bg-white/70 dark:bg-brand-slate-900/70 backdrop-blur-md border border-white/20 dark:border-brand-slate-800/30;
+}
+
+@utility glass-card-hover {
+  @apply hover:bg-white/80 dark:hover:bg-brand-slate-900/80 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1;
+}
+
+@utility text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-blue-600 via-brand-blue-500 to-brand-orange-500;
+}
+
+@utility text-gradient-orange {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-orange-500 to-amber-500;
+}
+
+@utility btn-primary {
+  @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-brand-blue-600 hover:bg-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue-500 transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 cursor-pointer;
+}
+
+@utility btn-secondary {
+  @apply inline-flex items-center justify-center px-6 py-3 border border-brand-slate-200 dark:border-brand-slate-800 text-base font-medium rounded-lg text-brand-slate-700 bg-white/50 hover:bg-brand-slate-100 dark:text-brand-slate-200 dark:bg-brand-slate-900/50 dark:hover:bg-brand-slate-800/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue-500 transition-all duration-200 active:scale-95 cursor-pointer;
+}
+
+@utility btn-accent {
+  @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-brand-orange-600 hover:bg-brand-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-orange-500 transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 cursor-pointer;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-brand-slate-100 dark:bg-brand-slate-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-slate-300 dark:bg-brand-slate-700 rounded-full hover:bg-brand-slate-400 dark:hover:bg-brand-slate-600;
+}
