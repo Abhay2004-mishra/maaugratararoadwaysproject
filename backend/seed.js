@@ -24,47 +24,45 @@ const seedData = async () => {
     }
 
     // 2. Seed Trucks (Fleet)
-    const truckCount = await Truck.countDocuments();
-    if (truckCount === 0) {
-      const defaultTrucks = [
-        {
-          name: "Tata Signa 2823.K",
-          capacity: "25 Tons",
-          type: "10-Wheeler Open Truck",
-          routes: ["Jamshedpur -> Kolkata", "Jamshedpur -> Patna"],
-          imageUrl: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800",
-          isActive: true
-        },
-        {
-          name: "BharatBenz 3523R",
-          capacity: "31 Tons",
-          type: "12-Wheeler Heavy Taurus",
-          routes: ["Jamshedpur -> Bhubaneswar", "Jamshedpur -> Kolkata"],
-          imageUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
-          isActive: true
-        },
-        {
-          name: "Ashok Leyland 4019",
-          capacity: "40 Tons",
-          type: "18-Wheeler Heavy Trailer",
-          routes: ["Jamshedpur -> Raipur", "Jamshedpur -> Kolkata"],
-          imageUrl: "https://images.unsplash.com/photo-1592838064805-71bd7454a4f5?auto=format&fit=crop&q=80&w=800",
-          isActive: true
-        },
-        {
-          name: "Tata LPT 1613",
-          capacity: "10 Tons",
-          type: "6-Wheeler Box Truck",
-          routes: ["Jamshedpur -> Ranchi", "Jamshedpur -> Dhanbad"],
-          imageUrl: "https://images.unsplash.com/photo-1516576426665-ac89f7385136?auto=format&fit=crop&q=80&w=800",
-          isActive: true
-        }
-      ];
-      await Truck.insertMany(defaultTrucks);
-      console.log('Seeded 4 default trucks in the fleet.');
-    } else {
-      console.log('Truck fleet already has records, skipping...');
-    }
+    await Truck.deleteMany({});
+    console.log('Cleared existing trucks collection.');
+    const defaultTrucks = [
+      {
+        name: "Tata Signa 2823.K",
+        capacity: "25 Tons",
+        type: "10-Wheeler Open Truck",
+        routes: ["Jamshedpur -> Kolkata", "Jamshedpur -> Patna"],
+        imageUrl: "/uploads/truck10.jpg",
+        isActive: true
+      },
+      {
+        name: "BharatBenz 3523R",
+        capacity: "31 Tons",
+        type: "12-Wheeler Heavy Taurus",
+        routes: ["Jamshedpur -> Bhubaneswar", "Jamshedpur -> Kolkata"],
+        imageUrl: "/uploads/truck.jpg",
+        isActive: true
+      },
+      {
+        name: "Ashok Leyland 4019",
+        capacity: "40 Tons",
+        type: "18-Wheeler Heavy Trailer",
+        routes: ["Jamshedpur -> Raipur", "Jamshedpur -> Kolkata"],
+        imageUrl: "/uploads/trip_trailer.png",
+        isActive: true
+      },
+      {
+        name: "Tata LPT 1613",
+        capacity: "10 Tons",
+        type: "6-Wheeler Box Truck",
+        routes: ["Jamshedpur -> Ranchi", "Jamshedpur -> Dhanbad"],
+        imageUrl: "/uploads/download11.jpeg",
+        isActive: true
+      }
+    ];
+    await Truck.insertMany(defaultTrucks);
+    console.log('Seeded 4 default trucks in the fleet with updated local images.');
+
 
     // 3. Seed Testimonials
     const testimonialCount = await Testimonial.countDocuments();

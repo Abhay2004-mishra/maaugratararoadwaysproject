@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Truck as TruckIcon, Shield, Anchor, Compass } from 'lucide-react';
 import { motion } from 'framer-motion';
+import truckImg from '../assets/truck.jpg';
+import tripTrailerImg from '../assets/trip_trailer.png';
+import download11Img from '../assets/download11.jpeg';
+import truck10Img from '../assets/truck10.jpg';
 
 const Fleet = () => {
   const [trucks, setTrucks] = useState([]);
@@ -21,7 +25,7 @@ const Fleet = () => {
             capacity: "25 Tons",
             type: "10-Wheeler Open Truck",
             routes: ["Jamshedpur -> Kolkata", "Jamshedpur -> Patna"],
-            imageUrl: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800",
+            imageUrl: truck10Img,
             isActive: true
           },
           {
@@ -29,7 +33,7 @@ const Fleet = () => {
             capacity: "31 Tons",
             type: "12-Wheeler Heavy Taurus",
             routes: ["Jamshedpur -> Bhubaneswar", "Jamshedpur -> Kolkata"],
-            imageUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
+            imageUrl: truckImg,
             isActive: true
           },
           {
@@ -37,7 +41,7 @@ const Fleet = () => {
             capacity: "40 Tons",
             type: "18-Wheeler Heavy Trailer",
             routes: ["Jamshedpur -> Raipur", "Jamshedpur -> Kolkata"],
-            imageUrl: "https://images.unsplash.com/photo-1592838064805-71bd7454a4f5?auto=format&fit=crop&q=80&w=800",
+            imageUrl: tripTrailerImg,
             isActive: true
           },
           {
@@ -45,7 +49,7 @@ const Fleet = () => {
             capacity: "10 Tons",
             type: "6-Wheeler Box Truck",
             routes: ["Jamshedpur -> Ranchi", "Jamshedpur -> Dhanbad"],
-            imageUrl: "https://images.unsplash.com/photo-1516576426665-ac89f7385136?auto=format&fit=crop&q=80&w=800",
+            imageUrl: download11Img,
             isActive: true
           }
         ]);
