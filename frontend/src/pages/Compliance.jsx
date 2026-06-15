@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
 import { ShieldCheck, FileDown, FileText, CheckCircle, RefreshCw, Layers } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -7,7 +8,7 @@ const Compliance = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5001/api/documents')
+    fetch(`${API_BASE_URL}/api/documents`)
       .then(res => res.json())
       .then(data => {
         setDocuments(data);
@@ -173,7 +174,7 @@ const Compliance = () => {
                     </div>
                     {/* Trigger download */}
                     <a
-                      href={doc.fileUrl.startsWith('/') ? `http://localhost:5001${doc.fileUrl}` : doc.fileUrl}
+                      href={doc.fileUrl.startsWith('/') ? `${API_BASE_URL}${doc.fileUrl}` : doc.fileUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-secondary py-2 px-3 hover:bg-brand-slate-100 flex items-center gap-1 text-xs font-bold text-brand-blue-500"

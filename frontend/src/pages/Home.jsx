@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import LeadForm from '../components/LeadForm';
 import truckImg from '../assets/truck.jpg';
 import tripTrailerImg from '../assets/trip_trailer.png';
+import { API_BASE_URL } from '../config';
 
 
 const Home = () => {
@@ -13,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     // Fetch testimonials from API, fallback to default seed data if fails
-    fetch('http://localhost:5001/api/testimonials')
+    fetch(`${API_BASE_URL}/api/testimonials`)
       .then(res => res.json())
       .then(data => setTestimonials(data))
       .catch(err => {

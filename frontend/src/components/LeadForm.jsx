@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle, AlertCircle, Loader } from 'lucide-react';
+import { API_BASE_URL } from '../config';
 
 const LeadForm = ({ title = "Request an Instant Quote", subtitle = "Enter transport details below and our dispatch team will contact you in 15 minutes." }) => {
   const [formData, setFormData] = useState({
@@ -34,7 +35,7 @@ const LeadForm = ({ title = "Request an Instant Quote", subtitle = "Enter transp
     }
 
     try {
-      const response = await fetch('http://localhost:5001/api/leads', {
+      const response = await fetch(`${API_BASE_URL}/api/leads`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

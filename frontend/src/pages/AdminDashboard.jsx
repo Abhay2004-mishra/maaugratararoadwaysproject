@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldCheck, LogOut, CheckCircle, RefreshCw, Layers, Trash2, Calendar, Plus, Upload, Eye, FileText, CheckCircle2, X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { API_BASE_URL } from '../config';
 
 const AdminDashboard = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,7 +35,7 @@ const AdminDashboard = () => {
     const savedToken = localStorage.getItem('adminToken');
     if (savedToken) {
       // Verify token
-      fetch('http://localhost:5001/api/auth/verify', {
+      fetch(`${API_BASE_URL}/api/auth/verify`, {
         headers: {
           'Authorization': `Bearer ${savedToken}`
         }
@@ -61,25 +62,25 @@ const AdminDashboard = () => {
     const headers = { 'Authorization': `Bearer ${token}` };
 
     if (activeTab === 'leads') {
-      fetch('http://localhost:5001/api/leads', { headers })
+      fetch(`${API_BASE_URL}/api/leads`, { headers })
         .then(res => res.json())
         .then(data => setLeads(data))
         .catch(err => setActionError('Failed to fetch leads'))
         .finally(() => setLoading(false));
     } else if (activeTab === 'fleet') {
-      fetch('http://localhost:5001/api/trucks')
+      fetch(`${API_BASE_URL}/api/trucks`)
         .then(res => res.json())
         .then(data => setTrucks(data))
         .catch(err => setActionError('Failed to fetch fleet'))
         .finally(() => setLoading(false));
     } else if (activeTab === 'testimonials') {
-      fetch('http://localhost:5001/api/testimonials')
+      fetch(`${API_BASE_URL}/api/testimonials`)
         .then(res => res.json())
         .then(data => setTestimonials(data))
         .catch(err => setActionError('Failed to fetch testimonials'))
         .finally(() => setLoading(false));
     } else if (activeTab === 'documents') {
-      fetch('http://localhost:5001/api/documents')
+      fetch(`${API_BASE_URL}/api/documents`)
         .then(res => res.json())
         .then(data => setDocuments(data))
         .catch(err => setActionError('Failed to fetch compliance documents'))
@@ -92,7 +93,7 @@ const AdminDashboard = () => {
     e.preventDefault();
     setLoginError('');
     try {
-      const res = await fetch('http://localhost:5001/api/auth/login', {
+      const res = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -123,7 +124,7 @@ const AdminDashboard = () => {
   // 1. Leads Actions
   const handleLeadStatusChange = async (id, newStatus) => {
     try {
-      const res = await fetch(`http://localhost:5001/api/leads/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/leads/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -142,7 +143,7 @@ const AdminDashboard = () => {
   const handleLeadDelete = async (id) => {
     if (!window.confirm("Delete this lead entry permanently?")) return;
     try {
-      const res = await fetch(`http://localhost:5001/api/leads/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/leads/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -161,7 +162,7 @@ const AdminDashboard = () => {
       return;
     }
     try {
-      const res = await fetch('http://localhost:5001/api/trucks', {
+      const res = await fetch(`${API_BASE_URL}/api/trucks`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -181,7 +182,7 @@ const AdminDashboard = () => {
   const handleTruckDelete = async (id) => {
     if (!window.confirm("Remove this truck from fleet list?")) return;
     try {
-      const res = await fetch(`http://localhost:5001/api/trucks/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/trucks/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -200,7 +201,7 @@ const AdminDashboard = () => {
       return;
     }
     try {
-      const res = await fetch('http://localhost:5001/api/testimonials', {
+      const res = await fetch(`${API_BASE_URL}/api/testimonials`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -220,7 +221,7 @@ const AdminDashboard = () => {
   const handleTestimonialDelete = async (id) => {
     if (!window.confirm("Delete this review entry?")) return;
     try {
-      const res = await fetch(`http://localhost:5001/api/testimonials/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/testimonials/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -246,7 +247,7 @@ const AdminDashboard = () => {
 
     try {
       setLoading(true);
-      const res = await fetch('http://localhost:5001/api/documents/upload', {
+      const res = await fetch(`${API_BASE_URL}/api/documents/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -272,7 +273,7 @@ const AdminDashboard = () => {
   const handleDocDelete = async (id) => {
     if (!window.confirm("Delete this document and remove from server storage?")) return;
     try {
-      const res = await fetch(`http://localhost:5001/api/documents/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/documents/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -728,7 +729,7 @@ const AdminDashboard = () => {
                         </div>
                         <div className="flex gap-2">
                           <a
-                            href={doc.fileUrl.startsWith('/') ? `http://localhost:5001${doc.fileUrl}` : doc.fileUrl}
+                            href={doc.fileUrl.startsWith('/') ? `${API_BASE_URL}${doc.fileUrl}` : doc.fileUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="p-1.5 text-brand-blue-500 hover:bg-brand-blue-50 dark:hover:bg-brand-blue-950/20 rounded"

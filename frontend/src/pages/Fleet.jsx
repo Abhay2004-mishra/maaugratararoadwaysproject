@@ -5,13 +5,14 @@ import truckImg from '../assets/truck.jpg';
 import tripTrailerImg from '../assets/trip_trailer.png';
 import download11Img from '../assets/download11.jpeg';
 import truck10Img from '../assets/truck10.jpg';
+import { API_BASE_URL } from '../config';
 
 const Fleet = () => {
   const [trucks, setTrucks] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5001/api/trucks')
+    fetch(`${API_BASE_URL}/api/trucks`)
       .then(res => res.json())
       .then(data => {
         setTrucks(data);
@@ -107,7 +108,7 @@ const Fleet = () => {
                 {/* Truck Image */}
                 <div className="w-full sm:w-1/2 h-52 sm:h-auto overflow-hidden">
                   <img
-                    src={truck.imageUrl.startsWith('/') ? `http://localhost:5001${truck.imageUrl}` : truck.imageUrl}
+                    src={truck.imageUrl.startsWith('/') ? `${API_BASE_URL}${truck.imageUrl}` : truck.imageUrl}
                     alt={truck.name}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-550"
                   />
