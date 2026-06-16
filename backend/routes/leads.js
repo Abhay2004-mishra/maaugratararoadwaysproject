@@ -27,7 +27,10 @@ router.post('/', async (req, res) => {
     res.status(201).json({ success: true, data: newLead });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server error while submitting inquiry' });
+    res.status(500).json({ 
+      message: 'Server error while submitting inquiry', 
+      error: error.message 
+    });
   }
 });
 
