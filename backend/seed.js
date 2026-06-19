@@ -12,15 +12,18 @@ const seedData = async () => {
     console.log('Connected to database for seeding...');
 
     // 1. Seed Admin User
-    const adminExists = await User.findOne({ username: 'admin' });
-    if (!adminExists) {
-      await User.create({
+    let admin = await User.findOne({ username: 'admin' });
+    if (!admin) {
+      admin = new User({
         username: 'admin',
-        password: 'admin1234' // Will be hashed by pre('save') hook in User model
+        password: 'admin1234' // Will be hashed by pre('save') hook
       });
+      await admin.save();
       console.log('Seeded default admin user: username=admin, password=admin1234');
     } else {
-      console.log('Admin user already exists, skipping...');
+      admin.password = 'admin1234';
+      await admin.save();
+      console.log('Reset admin user password to: admin1234');
     }
 
     // 2. Seed Trucks (Fleet)

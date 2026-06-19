@@ -22,7 +22,7 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Please provide both username and password' });
     }
 
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ username: username.toLowerCase() });
     if (!user) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
