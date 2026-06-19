@@ -69,7 +69,7 @@ const Home = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center bg-brand-slate-900 text-white overflow-hidden py-20">
+      <section className="relative min-h-[90vh] flex items-center bg-brand-slate-900 text-white overflow-hidden py-12 sm:py-20">
         {/* Parallax truck background image */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -172,7 +172,7 @@ const Home = () => {
       </section>
 
       {/* Trust & Company Summary */}
-      <section className="py-20 bg-white dark:bg-brand-slate-950">
+      <section className="py-12 sm:py-20 bg-white dark:bg-brand-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image display */}
@@ -238,7 +238,7 @@ const Home = () => {
       </section>
 
       {/* Flagship Heavy Logistics Fleet Showcase */}
-      <section className="py-24 bg-brand-slate-900 text-white relative overflow-hidden">
+      <section className="py-16 sm:py-24 bg-brand-slate-900 text-white relative overflow-hidden">
         {/* Glow highlights */}
         <div className="absolute top-1/4 left-[10%] w-96 h-96 bg-brand-blue-600/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/4 right-[10%] w-96 h-96 bg-brand-orange-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -298,7 +298,7 @@ const Home = () => {
               </div>
 
               {/* Content */}
-              <div className="p-8 flex-grow flex flex-col justify-between space-y-6">
+              <div className="p-5 sm:p-8 flex-grow flex flex-col justify-between space-y-4 sm:space-y-6">
                 <div className="space-y-4">
                   <h3 className="font-outfit font-extrabold text-2xl text-white group-hover:text-brand-blue-400 transition-colors">
                     BharatBenz 3523R Taurus
@@ -364,7 +364,7 @@ const Home = () => {
               </div>
 
               {/* Content */}
-              <div className="p-8 flex-grow flex flex-col justify-between space-y-6">
+              <div className="p-5 sm:p-8 flex-grow flex flex-col justify-between space-y-4 sm:space-y-6">
                 <div className="space-y-4">
                   <h3 className="font-outfit font-extrabold text-2xl text-white group-hover:text-brand-orange-400 transition-colors">
                     Scania & Leyland Tipping Trailer
@@ -410,7 +410,7 @@ const Home = () => {
       </section>
 
       {/* Services Highlight Section */}
-      <section className="py-20 bg-brand-slate-50 dark:bg-brand-slate-900/40">
+      <section className="py-12 sm:py-20 bg-brand-slate-50 dark:bg-brand-slate-900/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
             <span className="text-brand-blue-500 font-bold text-xs uppercase tracking-widest bg-brand-blue-50 dark:bg-brand-blue-950/40 px-3 py-1 rounded-full border border-brand-blue-100 dark:border-brand-blue-900/50">
@@ -479,7 +479,7 @@ const Home = () => {
       </section>
 
       {/* Compliance banner */}
-      <section className="py-16 bg-brand-slate-900 text-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 bg-brand-slate-900 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -514,7 +514,7 @@ const Home = () => {
 
       {/* Testimonial Carousel */}
       {testimonials.length > 0 && (
-        <section className="py-20 bg-white dark:bg-brand-slate-950">
+        <section className="py-12 sm:py-20 bg-white dark:bg-brand-slate-950">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="text-brand-orange-500 font-bold text-xs uppercase tracking-widest mb-3">
               Client Reviews
@@ -524,7 +524,7 @@ const Home = () => {
             </h2>
 
             {/* Card display */}
-            <div className="glass-card p-8 sm:p-10 rounded-3xl border border-brand-slate-100 dark:border-brand-slate-900 shadow-xl relative min-h-60 flex flex-col justify-between">
+            <div className="glass-card p-5 sm:p-10 rounded-3xl border border-brand-slate-100 dark:border-brand-slate-900 shadow-xl relative min-h-60 flex flex-col justify-between">
               {/* Quotes decoration */}
               <div className="absolute top-6 left-6 text-8xl font-serif text-brand-slate-200 dark:text-brand-slate-800/30 select-none pointer-events-none">
                 “
@@ -576,7 +576,7 @@ const Home = () => {
       )}
 
       {/* Call to Action Section */}
-      <section className="py-20 bg-brand-slate-50 dark:bg-brand-slate-900/30 border-t border-brand-slate-100 dark:border-brand-slate-900">
+      <section className="py-12 sm:py-20 bg-brand-slate-50 dark:bg-brand-slate-900/30 border-t border-brand-slate-100 dark:border-brand-slate-900">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <h2 className="font-outfit font-extrabold text-3xl sm:text-4xl text-brand-slate-900 dark:text-white">
             Need Bulk Transport Fast?

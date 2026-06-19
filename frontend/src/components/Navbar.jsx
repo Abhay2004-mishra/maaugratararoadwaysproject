@@ -21,7 +21,8 @@ const Navbar = () => {
         setIsScrolled(false);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -43,19 +44,19 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'py-3 bg-white/80 dark:bg-brand-slate-950/80 backdrop-blur-md shadow-md border-b border-brand-slate-100 dark:border-brand-slate-900' 
+        ? 'py-3 bg-white dark:bg-brand-slate-950 shadow-md border-b border-brand-slate-100 dark:border-brand-slate-900' 
         : 'py-5 bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <img src={logoImg} alt="Maa Ugra Tara Roadways" className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+          <Link to="/" className="flex items-center gap-1.5 sm:gap-2 group">
+            <img src={logoImg} alt="Maa Ugra Tara Roadways" className="h-9 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
             <div className="flex flex-col">
-              <span className="font-outfit font-extrabold text-lg sm:text-xl leading-none text-brand-slate-900 dark:text-white group-hover:text-brand-blue-500 transition-colors">
+              <span className="font-outfit font-extrabold text-sm min-[360px]:text-base sm:text-xl leading-none text-brand-slate-900 dark:text-white group-hover:text-brand-blue-500 transition-colors">
                 MAA UGRA TARA
               </span>
-              <span className="font-sans font-bold text-xs tracking-widest text-brand-orange-500">
+              <span className="font-sans font-bold text-[9px] min-[360px]:text-xs tracking-widest text-brand-orange-500">
                 ROADWAYS
               </span>
             </div>
